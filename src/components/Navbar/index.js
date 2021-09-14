@@ -21,6 +21,7 @@ const Menu = styled.ul`
   align-items: center;
   text-decoration: none;
   list-style-type: none;
+  cursor: pointer;
 `;
 const MenuItem = styled.li`
   text-decoration: none;

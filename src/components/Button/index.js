@@ -12,6 +12,16 @@ const MyButton = styled.button`
   font-weight: bold;
 `;
 
-export const Button = ({ text, type }) => {
-  return <MyButton type={type}>{text}</MyButton>;
+//new component with override styles
+const DarkButton = styled(MyButton)`
+  background-color: #152d35;
+  color: #d4ecdd;
+`;
+
+export const Button = ({ text, type, color }) => {
+  return color == "dark" ? (
+    <DarkButton type={type}>{text}</DarkButton>
+  ) : (
+    <MyButton type={type}>{text}</MyButton>
+  );
 };
