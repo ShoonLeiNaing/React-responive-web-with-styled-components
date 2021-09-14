@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "../Button";
 // import Button from "./Navbar";
 
 const Container = styled.div`
@@ -26,14 +27,6 @@ const MenuItem = styled.li`
   padding: 0 20px;
   margin: 0 5px;
 `;
-const Button = styled.button`
-  padding: 10px 17px;
-  background-color: #d4ecdd;
-  color: #345b63;
-  border-radius: 5px;
-  border: none;
-  font-weight: bold;
-`;
 
 export const Navbar = () => {
   return (
@@ -45,7 +38,7 @@ export const Navbar = () => {
         <MenuItem>About</MenuItem>
         <MenuItem>Contact</MenuItem>
       </Menu>
-      <Button>Join Now</Button>
+      <Button text="Join Now" type="outline" />
     </Container>
   );
 };
