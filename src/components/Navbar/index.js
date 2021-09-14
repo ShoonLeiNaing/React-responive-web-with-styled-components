@@ -39,7 +39,7 @@ export const Navbar = () => {
         <MenuItem>About</MenuItem>
         <MenuItem>Contact</MenuItem>
       </Menu>
-      <Button text="Join Now" type="outline" />
+      <Button text="Join Now" type="outline" link="#" />
     </Container>
   );
 };
