@@ -1,8 +1,17 @@
+import styled from "styled-components";
 import "./App.css";
+import { Navbar } from "./components/Navbar";
+
+const Container = styled.div`
+  height: 100vh;
+  background-color: pink;
+`;
 
 function App() {
   return (
-    <div className="App">Almost before we knew it, we had left the ground.</div>
+    <Container>
+      <Navbar />
+    </Container>
   );
 }
 
