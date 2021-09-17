@@ -1,17 +1,25 @@
-import styled from "styled-components";
+import { useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
 import "./App.css";
 import { Navbar } from "./components/Navbar";
+import { lightTheme, darkTheme, GlobalStyles } from "./Theme.js";
 
-const Container = styled.div`
-  height: 100vh;
-  background-color: pink;
-`;
+// const Container = styled.div`
+//   height: 100vh;
+//   background-color: pink;
+// `;
 
 function App() {
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => {
+    console.log("kk");
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
   return (
-    <Container>
-      <Navbar />
-    </Container>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyles />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
+    </ThemeProvider>
   );
 }
 

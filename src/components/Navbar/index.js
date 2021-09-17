@@ -1,20 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { darkTheme, lightTheme } from "../../Theme";
+import { FcLandscape, FcNightLandscape } from "react-icons/fc";
 import { Button } from "../Button";
 // import Button from "./Navbar";
 
 const Container = styled.div`
   height: 50px;
   padding: 10px 80px;
-  background-color: #345b63;
+  background-color: ${(props) =>
+    props.theme === "light" ? lightTheme.color1 : darkTheme.color1};
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 16px;
-  color: #d4ecdd;
-`;
-const Logo = styled.h1`
-  color: #d4ecdd;
 `;
 const Menu = styled.ul`
   display: flex;
@@ -28,18 +27,35 @@ const MenuItem = styled.li`
   padding: 0 20px;
   margin: 0 5px;
 `;
+const IconDiv = styled.div`
+  height: 40px;
+  width: 40px;
+  background-color: ${(props) =>
+    props.theme === "light" ? lightTheme.color2 : darkTheme.color2};
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
 
-export const Navbar = () => {
+  svg {
+    font-size: 30px;
+    padding-top: 3px;
+  }
+`;
+
+export const Navbar = ({ theme, toggleTheme }) => {
   return (
-    <Container>
-      <Logo>MEMEs</Logo>
+    <Container theme={theme}>
+      <h1>MEMEs</h1>
       <Menu>
         <MenuItem>Home</MenuItem>
         <MenuItem>Category</MenuItem>
         <MenuItem>About</MenuItem>
         <MenuItem>Contact</MenuItem>
       </Menu>
-      <Button text="Join Now" type="outline" link="#" />
+      {/* <Button text="Join Now" type="outline" link="#" /> */}
+      <IconDiv theme={theme} onClick={toggleTheme}>
+        {theme === "light" ? <FcNightLandscape /> : <FcLandscape />}
+      </IconDiv>
     </Container>
   );
 };
