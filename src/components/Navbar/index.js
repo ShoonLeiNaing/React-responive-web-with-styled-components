@@ -7,13 +7,15 @@ import { Button } from "../Button";
 
 const Container = styled.div`
   height: 50px;
-  padding: 10px 80px;
+  width: 100vw;
+  padding: 10px 0px;
   background-color: ${(props) =>
     props.theme === "light" ? lightTheme.color1 : darkTheme.color1};
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: 16px;
+  transition: all 0.4s;
 `;
 const Menu = styled.ul`
   display: flex;
@@ -35,6 +37,7 @@ const IconDiv = styled.div`
   border-radius: 5px;
   display: flex;
   justify-content: center;
+  transition: all 0.4s;
 
   svg {
     font-size: 30px;
@@ -46,12 +49,12 @@ export const Navbar = ({ theme, toggleTheme }) => {
   return (
     <Container theme={theme}>
       <h1>MEMEs</h1>
-      <Menu>
+      {/* <Menu>
         <MenuItem>Home</MenuItem>
         <MenuItem>Category</MenuItem>
         <MenuItem>About</MenuItem>
         <MenuItem>Contact</MenuItem>
-      </Menu>
+      </Menu> */}
       {/* <Button text="Join Now" type="outline" link="#" /> */}
       <IconDiv theme={theme} onClick={toggleTheme}>
         {theme === "light" ? <FcNightLandscape /> : <FcLandscape />}

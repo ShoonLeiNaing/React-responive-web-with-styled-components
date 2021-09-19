@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import "./App.css";
+import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar";
 import { lightTheme, darkTheme, GlobalStyles } from "./Theme.js";
 
@@ -19,6 +20,7 @@ function App() {
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <Hero theme={theme} />
     </ThemeProvider>
   );
 }
