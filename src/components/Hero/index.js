@@ -22,11 +22,11 @@ const Image = styled.img`
   margin: 30px 0;
 `;
 
-export const Hero = ({ theme }) => {
+export const Hero = ({ theme, t }) => {
   return (
     <Wrapper theme={theme}>
       <Image src={theme === "light" ? img1 : img2}></Image>
-      <h1 style={{ textAlign: "center" }}>Memes I can relate to</h1>
+      <h1 style={{ textAlign: "center" }}>{t("welcome_text")}</h1>
       <Button theme={theme} text="See more" />
     </Wrapper>
   );

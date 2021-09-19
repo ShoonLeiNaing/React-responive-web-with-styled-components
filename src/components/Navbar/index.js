@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { darkTheme, lightTheme } from "../../Theme";
 import { FcLandscape, FcNightLandscape } from "react-icons/fc";
-import { Button } from "../Button";
-// import Button from "./Navbar";
+import i18next from "i18next";
 
 const Container = styled.div`
   height: 50px;
@@ -44,8 +43,34 @@ const IconDiv = styled.div`
     padding-top: 3px;
   }
 `;
+const RightDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const LanguageDiv = styled.div`
+  padding: 3px 8px;
+  border: ${(props) =>
+    props.theme === "light"
+      ? `1px solid ${lightTheme.color2}`
+      : `1px solid ${darkTheme.color2}`};
+  float: right;
+  height: fit-content;
+  border-radius: 3px;
+  margin: 0 20px;
+  cursor: pointer;
+`;
 
 export const Navbar = ({ theme, toggleTheme }) => {
+  const [language, setLanguage] = useState("myan");
+  const changeLang = () => {
+    if (language === "en") {
+      setLanguage("myan");
+    } else {
+      setLanguage("en");
+    }
+    i18next.changeLanguage(language);
+  };
   return (
     <Container theme={theme}>
       <h1>MEMEs</h1>
@@ -56,9 +81,14 @@ export const Navbar = ({ theme, toggleTheme }) => {
         <MenuItem>Contact</MenuItem>
       </Menu> */}
       {/* <Button text="Join Now" type="outline" link="#" /> */}
-      <IconDiv theme={theme} onClick={toggleTheme}>
-        {theme === "light" ? <FcNightLandscape /> : <FcLandscape />}
-      </IconDiv>
+      <RightDiv>
+        <LanguageDiv theme={theme} onClick={changeLang}>
+          {language}
+        </LanguageDiv>
+        <IconDiv theme={theme} onClick={toggleTheme}>
+          {theme === "light" ? <FcNightLandscape /> : <FcLandscape />}
+        </IconDiv>
+      </RightDiv>
     </Container>
   );
 };
